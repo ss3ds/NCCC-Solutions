@@ -27,35 +27,69 @@ public class kepler {
 		{
 			String first = in.nextLine().trim();
 			String second = in.nextLine().trim();
-			boolean[] found1stArr = new boolean[first.length()];
-			boolean[] found2ndArr = new boolean[second.length()];
-			for (int j = 0; j < first.length(); j++)
+			String f = new String(first);
+			String s = new String(second);
+			boolean foundIn = false;
+			boolean found = true;
+			
+			for (int i = 0; i < f.length(); i++)
 			{
-				for (int k = 0; k < second.length(); k++)
+				foundIn = false;
+				for (int j = 0; j < s.length(); j++)
 				{
-					if (first.charAt(j) == second.charAt(k))
+					if (f.charAt(i) == s.charAt(j))
 					{
-						found1stArr[j] = true;
-						found2ndArr[k] = true;
+						foundIn = true;
+						f = f.replace(f.charAt(i), '*');
+						break;
 					}
+				}
+				
+				if (!foundIn)
+				{
+					found = false;
+					break;
 				}
 			}
 			
-			boolean found1 = true;
-			boolean found2 = true;
-			for (boolean x: found1stArr)
+			if (found)
 			{
-				found1 = found1 & x;
-			}
-			for (boolean x: found2ndArr)
-			{
-				found2 = found2 & x;
+				out += "YES\n";
+				continue;
 			}
 			
-			if (found1 || found2)
+			found = true;
+			
+			for (int i = 0; i < second.length(); i++)
+			{
+				foundIn = false;
+				for (int j = 0; j < first.length(); j++)
+				{
+					if (second.charAt(i) == first.charAt(j))
+					{
+						foundIn = true;
+						second = second.replace(second.charAt(i), '*');
+						break;
+					}
+				}
+				
+				if (!foundIn)
+				{
+					found = false;
+					break;
+				}
+			}
+			
+			if (found)
+			{
 				out += "YES\n";
+				continue;
+			}
 			else
+			{
 				out += "NO\n";
+				continue;
+			}
 		}
 		in.close();
 		
@@ -67,4 +101,3 @@ public class kepler {
 		System.out.println(kepler());
 	}
 }
-

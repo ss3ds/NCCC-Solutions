@@ -26,21 +26,21 @@ public class future {
 		while (in.hasNextLine())
 		{
 			int loop = in.nextInt();
-			int[] toPay = new int[loop];
-			int[] paid = new int[loop];
+			long[] toPay = new long[loop];
+			long[] paid = new long[loop];
 			
-			int sum = 0;
+			long sum = 0;
 			in.nextLine();
 			
 			for (int i = 0; i < loop; i++)
 			{
-				toPay[i] = in.nextInt();
+				toPay[i] = in.nextLong();
 			}
 			in.nextLine();
 			
 			for (int i = 0; i < loop; i++)
 			{
-				paid[i] = in.nextInt();
+				paid[i] = in.nextLong();
 			}
 			in.nextLine();
 			
