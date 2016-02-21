@@ -28,10 +28,11 @@ public class pizza {
 		while (in.hasNextLine())
 		{
 			int triangularArea = Integer.parseInt(in.nextLine().trim());
-			double side = Math.sqrt(triangularArea / (Math.sqrt(3)/4));
-			double radius = side/Math.sqrt(3);
+			double sqrtOf3 = Math.sqrt(3);
+			double side = Math.sqrt(triangularArea / (sqrtOf3/4));
+			double radius = side/sqrtOf3;
 			double circleArea = Math.PI * Math.pow(radius, 2);
-			out+= df.format(circleArea) + "\n";
+			System.out.println(df.format(circleArea));
 		}
 		in.close();
 		
@@ -40,6 +41,6 @@ public class pizza {
 	
 	public static void main(String[] args)
 	{
-		System.out.println(pizza());
+		pizza();
 	}
 }
